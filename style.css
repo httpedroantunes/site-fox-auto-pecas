@@ -470,13 +470,16 @@ input:checked + label{
     }
 }
 
-.d-flex{
-    width: 97%;
-    padding-right: 25px;
+.contact-form{
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    height: auto;
 }
 
 .mb-3{
     margin: 0px 80px 25px 25px;
+    display: block;
 }
 
 .mb-3 h1{
@@ -502,7 +505,6 @@ input:checked + label{
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
-    -webkit-appearance:none;
 }
   
 .mb-3 textarea{
@@ -520,7 +522,6 @@ input:checked + label{
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
-    -webkit-appearance:none;
 }
 
 
@@ -535,17 +536,61 @@ input:checked + label{
 }
 
 #maps{
-    padding: 150px 0px 150px;
+    float: right;
+    padding: 150px 40px 150px;
 }
 
-@media (max-width: 1083px){
+.colum{
+    float: left;
+    width: 50%;
+    height: auto;
+}
+
+.colum2{
+    float: left;
+    width: 50%;
+    height: auto;
+}
+
+@media screen and (max-width: 1083px){
+    .contact-form{
+        width: auto;
+    }
+    #maps{
+        width: 100%;
+        display: flex;
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 900px){
+
+    .contact-form{
+        float: none;
+        display: block;
+        justify-content: center;
+    }
+
+    .colum1{
+        width: 100%;
+        float: none;
+    }
+
+    .colum2{
+        width: 100%;
+        float: left;
+    }
 
     #maps{
-        width: 120px;
+        padding: 10px;
+        width: 100%;
     }
 
-    .mb-3 input{
-        width: -50%;
+    #maps iframe{
+        width: 100%;
     }
 
+    .mb-3{
+        width: 85%;
+    }
 }
