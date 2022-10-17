@@ -1,17 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Mingzat&family=Roboto:ital,wght@1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
 *{
+    font-family: 'Montserrat';
     margin: 0;
+    border: none;
     padding: 0;
-    outline: 0;
+    outline: none;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body{
     font-size: 1.6rem;
+    transition: all 1s ease;
 }
 
 html, body{
@@ -19,7 +24,10 @@ html, body{
 }
 
 header{
-    background-color: black;
+    z-index: 3;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.896);
 }
 
 header .navbar {
@@ -34,13 +42,17 @@ header .navbar {
 }
 
 .logo{
-    color: white;
-    font-family: Arial;
-    font-size: 2rem;
+    height: auto;
+    width: auto;
+}
+
+.logo img{
+    height: 95px;
+    width: 95px;
 }
 
 header .menu-container{
-    height: 90px;
+    height: 120px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,23 +70,42 @@ nav li {
     list-style: none;
 }
 
-nav ul li a{
+nav ul li a{outline: none;
+    white-space: nowrap;
     text-decoration: none;
     color: white;
     font-size: 2rem;
-    font-family: Arial;
-    margin-left: 40px;
+    font-family: 'Montserrat';
+    margin-left: 20px;
+    margin-right: 20px;
     transition: .5s;
     padding: 8px 10px;
 }
 
 nav ul li a:hover{
-    color: rgba(211, 190, 0, 0.884);
+    color: white;
     transition: .5s;
-    background-color: rgba(255, 255, 255, 0.171);
+    background-color: #ca0000;
     border-radius: 10px;
 }
 
+section{
+    width: 100%;
+}
+
+/*SCROLL ONE PAGE*/
+section:nth-of-type(1){
+    background-image: url(#sessao1);
+}
+section:nth-of-type(2){
+    background-image: url(#sessao2);
+}
+section:nth-of-type(3){
+    background-image: url(#sessao3);
+}
+section:nth-of-type(4){
+    background-image: url(#sessao4);
+}
 
 /*NAVIGATION -> RESPONSIVE MENU*/
 @media (max-width: 960px){
@@ -106,6 +137,7 @@ nav ul li a:hover{
     .menu-burguer{
         width: 40px;
         height: 30px;
+        transition: all 1s;
     }
 
 
@@ -116,15 +148,15 @@ nav ul li a:hover{
         left: 0;
 
         width: 100vw;
-        height: 80vh;
+        height: 90vh;
 
-        background: rgb(175, 175, 19);
+        background: #ca0000;
 
         display: flex;
         align-items: center;
         justify-content: center;
 
-        transition-duration: .6s;
+        transition: .4s ease-in-out;
     }
 
     .menu-section.on nav{
@@ -134,7 +166,7 @@ nav ul li a:hover{
     .menu-section.on .menu-burguer{
         position: absolute;
         right: 20px;
-        top: 20px;
+        top: 40px;
     }
 
     .menu-section.on .menu-burguer .one{
@@ -154,9 +186,14 @@ nav ul li a:hover{
         text-align: center;
     }
 
+    .menu-section.on nav ul li{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
     .menu-section.on nav ul li a{
         transition-duration: .3s;
-        font-size: 3rem;
+        font-size: 4rem;
         line-height: 15rem;
         margin-left: 0;
     }
@@ -166,21 +203,20 @@ nav ul li a:hover{
 
 /********SLIDER*******/
 .slider{
-    height: 600px;
+    position: relative;
+    height: 700px;
     width: 100%;
     overflow: hidden;
-    top: 50%;
-    left: 50%;
 }
 
 
 /*******NAVIGATION*******/
 .navigation {
-    position: absolute;
+    position:absolute;
     left: 50%;
     transform: translate(-50%);
     display: flex;
-    bottom: 30px;
+    bottom: 40px;
 }
 
 .bar{
@@ -209,13 +245,51 @@ input{
 }
 
 .slide{
+    position: relative;
     width: 20%;
     transition: .6s;
 }
 
+.legenda{
+    width: 85%;
+    color: #696969;
+    position: absolute;
+    margin: 30px;
+    top: 35%;
+    bottom: 40%;
+}
+
+.legenda h1{
+    color: white;
+    margin: 0;
+    font-size: 60px;
+}
+
+.legenda p{
+    color: rgb(159, 159, 159);
+    margin: 0;
+    font-size: 25px;
+
+    word-wrap: break-word;
+}
+
+@media screen and (max-width: 700px){
+    .legenda{
+        margin: 20px;
+    }
+
+    .legenda h1{
+        font-size: 33px;
+    }
+
+    .legenda p{
+        font-size: 15px;
+    }
+}
+
 .slide img{
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 #slide1:checked ~ .s1{
@@ -237,9 +311,14 @@ input{
 .cardsAboutUs{
     align-content: center;
     display: flex;
-    padding: 30px;
+    padding: 60px 25px;
 }
 
+.card-body{
+    padding: 15px;
+    margin-top: 15px;
+    width: 200px;
+}
 .card{
     border-style: none;
     font-size: 15px;
@@ -247,6 +326,10 @@ input{
     text-align: center;
 }
 
+.card img{
+    margin: auto;
+    width: 150px;
+}
 
 .card-title{
     font-size: 20px;
@@ -263,62 +346,113 @@ input{
     } 
 }
 
-.carousel img{
-    height: 280px
-}
-
 .carousel{
     transition: .5s;
 }
 
+.carousel img{
+    height: 300px;
+}
+
+.carousel-item{
+    height: auto;
+    position: relative;
+}
+
+.depoiments{
+    width: 100%;
+    height: auto;
+    color: white;
+    position: absolute;
+    padding-left: 25%;
+    padding-right: 25%;
+    bottom: 30%;
+    top: 30%;
+}
+
+.depoiments h3{
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.depoiments p{
+    text-align: center;
+    width: auto;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+    word-wrap: break-word;
+    height: auto;
+}
+
+@media screen and (max-width: 633px){
+    .carousel img{
+        height: 320px;
+    }
+}
 
 @media screen and (max-width: 590px){
+    .carousel{
+        height: auto;
+    }
+
+    .depoiments{
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    .depoiments h3{
+        font-size: 20px;
+    }
+
+    .depoiments p{
+       font-size: 15px; 
+    }
 
     .carousel img{
-        height: 180px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 384px){
+    .carousel img{
+        height: 350px;
     }
 }
 
 .col img{
-    width: 180px;
-}
-
-.container{
-    padding-top: 100px;
-    width: 100%;
-    display: flex;
+    width: 150px;
 }
 
 .clearfix{
-    padding: 50px;
+    padding: 80px;
     text-align: center;
 }
 
 .clearfix img{
     width: 250px;
+    margin: 20px;
+    padding: 20px;
 }
 
 .clearfix p{
-    text-align: left;
-    font-size: large;
-    margin: 30px;
+    text-align: justify;
+    font-size: 22px;
+    margin: 5px;
 }
 
-@media screen and (max-width: 590px){
+@media screen and (max-width: 480px){
     .clearfix img{
-        width: 220px;
+        width: 100%;
         padding-left: 50px;
         padding-right: 50px;
-        padding-top: -30px;
-    }
-
-    .clearfix p{
-        text-align: center;
     }
 }
 
 .col p{
-    font-size: 30px;
+    font-size: 50px;
     text-align: left;
     margin: 50px;
 }
@@ -328,10 +462,12 @@ input{
 }
 
 .container{
+    width: 100%;
+    height: auto;
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 100px;
-    padding-bottom: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 @media (max-width: 414px){
@@ -344,7 +480,7 @@ input{
     background-color: #696969;
     padding-top: 25px;
     width: 100%;
-    height: 300px;
+    height: 350px;
     margin: 20px auto;
     justify-content: center;
 }
@@ -352,29 +488,29 @@ input{
 #gallery{
     width: 100%;
     float: left;
-    padding-top: 15px;
+    padding-top: 30px;
     padding-bottom: 15px;
     padding-left: 15px;
     padding-right:15px;
     transition: all .5s;
     justify-content: left;
-    background-color: rgb(224, 224, 224);
+    background-image: linear-gradient(to bottom, #ca0000, #fe8585);
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
-    border-radius: 40px;
 }
 
 .galleryTitle{
     font-size: 25px;
-    font-family: Verdana;
+    font-family: 'Montserrat';
     font-weight: 700;
     color: black;
     margin: 25px;
 }
 
 #gallery img{
+    width: 240px;
     padding: 2px;
     transition: 1s;
 
@@ -393,9 +529,10 @@ input{
     padding: 18px;
     padding-left: 25px;
     padding-right: 25px;
-    background-color: black;
-    color: aliceblue;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: #ca0000;
+    font-weight: 600;
+    font-family: 'Montserrat';
     font-size: 20px;
     cursor: pointer;
     border-radius: 20px;
@@ -405,16 +542,16 @@ input{
 .productsGallery label:hover{
     transform: scale(1.5);
     cursor: pointer;
-    color: black;
-    background-color: #ffe190;
+    color: white;
+    background-color: #ca0000;
 
     transition: all .5s;
     transform: scale(1.08);
 }
 
 input:checked + label{
-    background-color: #FEC42B;
-    color: black;
+    background-color: #ca0000;
+    color: white;
     transform: scale(1.1);
 }
 
@@ -457,6 +594,7 @@ input:checked + label{
     transform: scale(0.5);
 }
 
+/*RESPONSIVITY GALLERY*/
 @media (max-width: 600px) {
     #gallery img{
         width: 70%;
@@ -470,9 +608,16 @@ input:checked + label{
     }
 }
 
+/*CONTACT FORM*/
 .contact-form{
     display: flex;
-    padding: 10px;
+    padding: 30px;
+    width: 100%;
+    height: auto;
+}
+
+form{
+    display: flex;
     width: 100%;
     height: auto;
 }
@@ -487,19 +632,19 @@ input:checked + label{
     width: auto;
     font-size: 30px;
     font-weight: 600;
-    font-family: Verdana;
+    font-family: 'Montserrat';
     color: black;
 }
 
 .mb-3 input{
     height: 63px;
     width: 100%;
-    font-weight: 300;
+    font-weight: 500;
 	margin-bottom: 10px;
     padding-left: 30px;
     padding-right: 30px;
 	border-radius: 50px;
-    border: 2px solid #FEC42B;
+    border: 2px solid #ca0000;
     font-size: 20px;
 
     transition: all .2s ease-out;
@@ -512,8 +657,8 @@ input:checked + label{
     width: 100%;
     height: 150px;
     border-radius: 20px;   
-    font-weight: 300;
-    border: 2px solid #FEC42B;
+    font-weight: 500;
+    border: 2px solid #ca0000;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 30px;
@@ -526,23 +671,28 @@ input:checked + label{
 
 
 .mb-3 input:focus{
-    border: 4.2px solid black;
+    border: 4.2px solid #ca0000;
     color: black;
 }
 
-  .mb-3 textarea:focus{
-    border: 5px solid black;
+.mb-3 textarea:focus{
+    border: 5px solid #ca0000;
     color: black;
 }
 
 #maps{
+    display: flex;
+    width: 100%;
+    height: 90%;
     float: right;
-    padding: 150px 40px 150px;
+    padding: 20px;
+
+    margin: 20px 20px;
 }
 
-.colum{
+.colum1{
     float: left;
-    width: 50%;
+    width: 90%;
     height: auto;
 }
 
@@ -552,10 +702,16 @@ input:checked + label{
     height: auto;
 }
 
+/*RESPONSIVITY CONTACT FORM*/
 @media screen and (max-width: 1083px){
     .contact-form{
-        width: auto;
+        width: 100%;
     }
+    
+    .mb-3 input, textarea{
+        width: 100%;
+    }
+
     #maps{
         width: 100%;
         display: flex;
@@ -566,6 +722,7 @@ input:checked + label{
 @media screen and (max-width: 900px){
 
     .contact-form{
+        width: 100%;
         float: none;
         display: block;
         justify-content: center;
@@ -577,20 +734,265 @@ input:checked + label{
     }
 
     .colum2{
+        padding-top: 20px;
         width: 100%;
+        height: 400px;
         float: left;
     }
 
     #maps{
+        margin: 0px;
         padding: 10px;
         width: 100%;
+        height: 400px;
     }
 
     #maps iframe{
         width: 100%;
+        padding-bottom: 50px;
     }
 
     .mb-3{
         width: 85%;
+    }
+}
+
+.btn{
+    margin-top: 20px;
+    width: 200px;
+    height: 60px;
+
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #ca0000;
+    color: white;
+    border: 3px solid white;
+
+    transition: .5s;
+}
+
+.btn:hover{
+    background-color: #ca0000;
+    color: white;
+    border: 3px solid white
+}
+
+.mb-3 button:hover{
+    transition: .5s;
+    background-color: black;
+    color: #FEC42B;
+}
+
+
+/*SOCIAL MEDIA ICONS*/
+.col{
+    width: 33,3%;
+    padding: 0;
+}
+
+.col img{
+    margin: 30px 70px;
+    width: 150px;
+    transition: all .3s;
+}
+
+.col a{
+    color: black;
+    text-decoration: none;
+}
+
+.col p{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 30px;
+    margin: 0px;
+
+    white-space: nowrap;
+}
+
+.col img:hover{
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    transform: scale(1.05);
+}
+
+/*BUTTON FOR MARKET (*in this case -> mercado livre*)*/
+.container button{
+    transition: .4s;
+    cursor: pointer;
+    border: none;
+    background: none;
+    height: auto;
+    width: auto;
+
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.container button:hover{
+    transition: .4s;
+    transform: scale(1.2);
+}
+
+
+/*RESPONSIVITY SOCIAL MEDIA ICONS AND BUTTON FOR MARKET*/
+@media screen and (max-width: 992px){
+    .col{
+        padding-right: 15px;
+    }
+
+    .col p{
+        font-size: 20px;    
+    }
+}
+
+@media screen and (max-width: 768px){
+    .col p{
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 550px){
+    
+    .col img{
+        width: 70%;
+    }
+
+    .col p{
+        font-size: 25px;
+    }
+
+}
+
+@media screen and (max-width: 440px){
+
+    .col{
+        padding-top: 30px;
+        width: 100%;
+    }
+
+    .col img{
+        width: 120px;
+    }
+
+    .row{
+        display: block;
+    }
+
+    .container button img{
+        width: 90%;
+    }
+}
+
+#InputFile{
+    padding-top: 12px;
+    padding-bottom: 10px;
+}
+
+footer{
+    color: white;
+    background-color: #ca0000;
+    padding: 50px 0;
+}
+
+.container-footer{
+    max-width: 1400px;
+    height: auto;
+    padding: 0 4%;
+    margin: auto;
+}
+
+.row-footer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col img{
+    width: 130px;
+    float: right;
+    margin: 10px;
+}
+
+.footer-col h1{
+    font-size: 30px;
+    width: auto;
+}
+
+.footer-col h4{
+    font-size: 22px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.footer-col ul{
+    list-style: none;
+}
+
+.footer-col ul li{
+    margin: 10px 0;
+}
+
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+    color: #cecdcd;
+    padding-left: 10px;
+}
+
+.midias-sociais{
+    margin-top: 80px;
+}
+
+.midias-sociais a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid white;
+    transition:  all 0.5s ease;
+}
+
+.midias-sociais a i{
+    font-size: 25px;
+}
+
+.midias-sociais a:hover{
+    color: #ca0000;
+    background-color: white;
+}
+
+
+/*REPONSIVE FOOTER */
+@media screen and (max-width: 800px) {
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer-col{
+        width: 100%;
     }
 }
