@@ -16,3 +16,9 @@ menuBurguer.addEventListener("click", function()  {
         navigation.style.display = "none"
     }
 });
+
+function hideMenuAfterClick(){
+    if (show=true){
+       menuSection.classList.toggle("on")
+    }
+}

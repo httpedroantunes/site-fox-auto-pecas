@@ -70,6 +70,7 @@ nav li {
     list-style: none;
 }
 
+
 nav ul li a{
     outline: none;
     white-space: nowrap;
@@ -168,6 +169,8 @@ section:nth-of-type(4){
         position: absolute;
         right: 20px;
         top: 40px;
+
+        transition:  1s ease-in-out;
     }
 
     .menu-section.on .menu-burguer .one{
